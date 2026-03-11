@@ -330,13 +330,17 @@ export default function Home() {
             </div>
 
             {/* Bottom row */}
-            {["TAILORED TROUSERS", "KNIT VEST", "LINEN SHIRT"].map((name, i) => (
+            {[
+              { name: "TAILORED TROUSERS", img: "/images/collection6.jpeg", price: 160 },
+              { name: "KNIT VEST",         img: "/images/collection7.jpeg", price: 200 },
+              { name: "LINEN SHIRT",       img: "/images/collection8.jpeg", price: 240 },
+            ].map((item, i) => (
               <div key={i} className="editorial-item col-span-4 relative aspect-[4/5] overflow-hidden group">
-                <div className="w-full h-full bg-[#1e1e1e]" style={{ filter: `brightness(${0.8 + i * 0.1})` }} />
+                <Image src={item.img} alt={item.name} width={1828} height={2560} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-4 left-4 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
-                  <p className="font-anton text-white text-lg">{name}</p>
-                  <p className="text-white/60 text-xs tracking-widest uppercase">Upcycled · €{160 + i * 40}</p>
+                  <p className="font-anton text-white text-lg">{item.name}</p>
+                  <p className="text-white/60 text-xs tracking-widest uppercase">Upcycled · €{item.price}</p>
                 </div>
               </div>
             ))}
