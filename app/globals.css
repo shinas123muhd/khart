@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-anton: "Anton", sans-serif;
+  --font-anton: var(--font-anton);
+}
+
+@layer utilities {
+  .font-anton {
+    font-family: var(--font-anton);
+  }
 }
